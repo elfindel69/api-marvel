@@ -6,14 +6,20 @@ import { AppComponent } from './app.component';
 import { AuthService } from './services/auth/auth.service';
 import { HeroService } from './services/hero/hero.service';
 import {HttpClientModule} from "@angular/common/http";
-import { HeroComponent } from './views/hero/hero.component';
+import { HeroesComponent } from './views/heroes/heroes.component';
 import { HeaderComponent } from './controllers/header/header.component';
+import { LoginComponent } from './views/login/login.component';
+import { ErrorComponent } from './views/error/error.component';
+import { SingleHeroComponent } from './views/single-hero/single-hero.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroComponent,
-    HeaderComponent
+    HeroesComponent,
+    HeaderComponent,
+    LoginComponent,
+    ErrorComponent,
+    SingleHeroComponent
   ],
   imports: [
     BrowserModule,

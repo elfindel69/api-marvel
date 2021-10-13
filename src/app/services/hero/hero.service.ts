@@ -19,13 +19,13 @@ export class HeroService {
 
   getHeroes():void{
       const date = new Date().getTime().toString();
-      let str = date+this.authService.privateKey+this.authService.apiKey;
+      let str = date+this.authService.privateKey+this.authService.apiKey.getValue();
 
 
       let hash = Md5.hashAsciiStr(str);
       console.log(hash);
       let params = new HttpParams()
-          .set("apikey",this.authService.apiKey)
+          .set("apikey",this.authService.apiKey.getValue())
           .set("ts",date)
           .set("hash",hash);
 
@@ -34,4 +34,25 @@ export class HeroService {
           .toPromise()
           .then((heroes:Array<Hero>)=>this.heroes.next(heroes) );
   }
+
+    getHeroByID(id: any):Promise<Array<Hero>> {
+        const date = new Date().getTime().toString();
+        let str = date+this.authService.privateKey+this.authService.apiKey.getValue();
+
+
+        let hash = Md5.hashAsciiStr(str);
+        console.log(hash);
+        let params = new HttpParams()
+            .set("apikey",this.authService.apiKey.getValue())
+            .set("ts",date)
+            .set("hash",hash);
+
+
+        //requête HTTP get
+        return this.httpClient.get("https://gateway.marvel.com:443/v1/public/characters/"+id,{params})
+            //transfomation du JSON en Array<Offer>
+            .pipe(map((data:any) =>data.data.results.map( (heroAsJSON:any) => Hero.fromJson(heroAsJSON))))
+            //transformation de l'observable en promise
+            .toPromise();
+    }
 }

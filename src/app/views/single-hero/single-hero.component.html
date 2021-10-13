@@ -1,0 +1,31 @@
+<div class="px-4 py-3 text-center">
+    <h1 *ngIf="hero" class="display-5 fw-bold">{{hero.name}}</h1>
+</div>
+
+<div *ngIf="hero" class="row col-6 card shadow mx-auto my-5 py-2">
+
+    <img [src]="hero.thumbnail.path+'/standard_fantastic.'+hero.thumbnail.extension">
+
+    <div class="card-body">
+        <h2 class="card-title text-center">{{hero.name}}</h2>
+        <p class="card-text">{{ hero.description }}</p>
+        <p class="card-text">
+            <small class="text-muted">
+                Dernière modification du lore {{hero.modified|date:"dd/MM/yyyy"
+                }},
+            </small>
+        </p>
+        <a href="{{hero.resourceUri}}" class="btn btn-primary">Lore officiel</a>
+    </div>
+    <div class="card-footer text-muted border-0 bg-white text-end" >
+        <a href="http://marvel.com">Data provided by Marvel. © 2021 MARVEL</a>
+    </div>
+
+    <hr>
+
+    <div class="d-flex justify-content-end">
+        <a class="btn btn-warning mx-1">MODIFIER</a>
+        <a routerLink="/heroes" class="btn btn-outline-dark mx-1">RETOUR</a>
+    </div>
+
+</div>
