@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     OnSubmitLoginForm(form:NgForm):void {
         if(form.valid) {
             this.authService.login(this.email,this.password).then(() => {
-                this.router.navigateByUrl("offers");
+                this.router.navigateByUrl("heroes");
             });
         }
   }
