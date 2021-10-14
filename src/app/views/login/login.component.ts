@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../services/auth/auth.service";
 import {Router} from "@angular/router";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-login',
@@ -8,14 +9,20 @@ import {Router} from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  constructor(private authService: AuthService,private router:Router) { }
+    email:string;
+    password:string;
+  constructor(private authService: AuthService,private router:Router) {
+      this.email = 'elfindel69@gmail.com';
+      this.password = 'azerty';
+  }
 
   ngOnInit(): void {
   }
-    onClickLogin():void {
-        this.authService.login().then(() => {
-            this.router.navigateByUrl("heroes");
-        });
-    }
+    OnSubmitLoginForm(form:NgForm):void {
+        if(form.valid) {
+            this.authService.login(this.email,this.password).then(() => {
+                this.router.navigateByUrl("offers");
+            });
+        }
+  }
 }

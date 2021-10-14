@@ -7,9 +7,13 @@ import {BehaviorSubject} from "rxjs";
 export class AuthService {
     privateKey: string;
     apiKey: BehaviorSubject<string>;
+    email: string;
+    password: string;
   constructor() {
       this.apiKey = new BehaviorSubject<string>("6c24593d7289e32b6c30e3b1503a27ba");
-      this.privateKey = "f38bcf82905c38ce8968ed9bac8f0592a371f176"
+      this.privateKey = "f38bcf82905c38ce8968ed9bac8f0592a371f176";
+        this.email = "elfindel69@gmail.com";
+        this.password = "azerty";
   }
 
     logout():Promise<void>{
@@ -19,7 +23,10 @@ export class AuthService {
         })
     }
 
-    login():Promise<boolean>{
-        return new Promise((res,rej) =>{res(true)});
+    login(email:string, password:string):Promise<boolean>{
+      if(this.email === email && this.password === password){
+          return new Promise((res,rej) =>{res(true)});
+      }
+        return new Promise((res,rej) =>{res(false)});
     }
 }

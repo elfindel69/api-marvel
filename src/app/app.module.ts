@@ -11,6 +11,7 @@ import { HeaderComponent } from './controllers/header/header.component';
 import { LoginComponent } from './views/login/login.component';
 import { ErrorComponent } from './views/error/error.component';
 import { SingleHeroComponent } from './views/single-hero/single-hero.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -21,11 +22,12 @@ import { SingleHeroComponent } from './views/single-hero/single-hero.component';
     ErrorComponent,
     SingleHeroComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-      HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule
+    ],
   providers: [
     HeroService,
     AuthService
