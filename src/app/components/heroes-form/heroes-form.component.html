@@ -4,13 +4,13 @@
         <input type="text"
                class="form-control"
                id="name"
-               placeholder="titre du hero"
+               placeholder="nom du hero"
                [(ngModel)]="hero.name"
                formControlName="name">
-        <label for="name">Titre du héro</label>
+        <label for="name">Nom du héro</label>
         <app-errors-form
             [control]="form.controls.name"
-            controlLabel="Titre du héro"
+            controlLabel="Nom du héro"
         ></app-errors-form>
     </div>
     <div class="form-floating mb-3">
