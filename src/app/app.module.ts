@@ -7,15 +7,15 @@ import { AuthService } from './services/auth/auth.service';
 import { HeroService } from './services/hero/hero.service';
 import {HttpClientModule} from "@angular/common/http";
 import { HeroesComponent } from './views/heroes/heroes.component';
-import { HeaderComponent } from './controllers/header/header.component';
+import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './views/login/login.component';
 import { ErrorComponent } from './views/error/error.component';
 import { SingleHeroComponent } from './views/single-hero/single-hero.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { AddHeroComponent } from './views/add-hero/add-hero.component';
 import { EditHeroComponent } from './views/edit-hero/edit-hero.component';
-import { HeroesFormComponent } from './controllers/heroes-form/heroes-form.component';
-import {ErrorsFormComponent} from "./controllers/errors-form/errors-form.component";
+import { HeroesFormComponent } from './components/heroes-form/heroes-form.component';
+import {ErrorsFormComponent} from "./components/errors-form/errors-form.component";
 
 @NgModule({
   declarations: [
