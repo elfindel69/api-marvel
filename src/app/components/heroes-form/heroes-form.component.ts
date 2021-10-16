@@ -33,18 +33,14 @@ export class HeroesFormComponent implements OnInit {
             new FormControl(
                 null,
                 [
-                    Validators.required,
-                    Validators.minLength(4),
-                    Validators.maxLength(50)
+                    Validators.required
                 ]
             ));
         this.form.addControl('description',
             new FormControl(
                 null,
                 [
-                    Validators.required,
-                    Validators.minLength(10),
-                    Validators.maxLength(250)
+                    Validators.required
                 ]
             ));
         this.form.addControl('modified',
