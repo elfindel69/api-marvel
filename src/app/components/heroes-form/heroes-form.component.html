@@ -60,11 +60,12 @@
                [(ngModel)]="hero.thumbnail.extension"
                formControlName="imgExtension">
         <label for="imgExtension">Extension de l'image</label>
+        <app-errors-form
+            [control]="form.controls.imgExtension"
+            controlLabel="Extension de l'image"
+        ></app-errors-form>
     </div>
-    <app-errors-form
-        [control]="form.controls.imgExtension"
-        controlLabel="Extension de l'image"
-    ></app-errors-form>
+
     <div class="form-floating mb-3">
         <input type="url"
                class="form-control"
