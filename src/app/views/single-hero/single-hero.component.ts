@@ -10,11 +10,18 @@ import {HeroService} from "../../services/hero/hero.service";
 })
 export class SingleHeroComponent implements OnInit {
     hero: Hero|undefined;
-  constructor(private heroService:HeroService,private route:ActivatedRoute) { }
+  constructor(private heroService:HeroService,private route:ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
-      const id = this.route.snapshot.params.id;
-      this.heroService.getHeroByID(id).then((heroes:Array<Hero>) => this.hero = heroes[0]);
+      const id = Number.parseInt(this.route.snapshot.params.id);
+      this.heroService.getHeroByID(id).then((hero:Hero) =>{console.log(hero); this.hero = hero});
   }
 
+    onClickDeleteBtn():void {
+      if(this.hero){
+          console.log(this.hero);
+          this.heroService.delete(this.hero.id).then(()=>this.router.navigateByUrl('heroes'));
+      }
+
+    }
 }

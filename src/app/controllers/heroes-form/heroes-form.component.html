@@ -1,0 +1,90 @@
+<form [formGroup]="form" (ngSubmit)="onSubmitForm()">
+    <div class="form-floating mb-3">
+
+        <input type="text"
+               class="form-control"
+               id="name"
+               placeholder="titre du hero"
+               [(ngModel)]="hero.name"
+               formControlName="name">
+        <label for="name">Titre du héro</label>
+        <app-errors-form
+            [control]="form.controls.name"
+            controlLabel="Titre du héro"
+        ></app-errors-form>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text"
+               class="form-control"
+               id="description"
+               placeholder="description du héro"
+               [(ngModel)]="hero.description"
+               formControlName="description">
+        <label for="description">Description du héro</label>
+        <app-errors-form
+        [control]="form.controls.description"
+        controlLabel="Description du héro"
+    ></app-errors-form>
+
+    </div>
+    <div class="form-floating mb-3">
+        <input type="date"
+               class="form-control"
+               id="modified"
+               [(ngModel)]="hero.modified"
+               formControlName="modified">
+        <label for="modified">Date de modification</label>
+        <app-errors-form
+            [control]="form.controls.modified"
+            controlLabel="Date de modification"
+        ></app-errors-form>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="url"
+               class="form-control"
+               id="imgPath"
+               [(ngModel)]="hero.thumbnail.path"
+               formControlName="imgPath">
+        <label for="imgPath">URL de l'image</label>
+        <app-errors-form
+            [control]="form.controls.imgPath"
+            controlLabel="URL de l'image"
+        ></app-errors-form>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text"
+               class="form-control"
+               id="imgExtension"
+               [(ngModel)]="hero.thumbnail.extension"
+               formControlName="imgExtension">
+        <label for="imgExtension">Extension de l'image</label>
+    </div>
+    <app-errors-form
+        [control]="form.controls.imgExtension"
+        controlLabel="Extension de l'image"
+    ></app-errors-form>
+    <div class="form-floating mb-3">
+        <input type="url"
+               class="form-control"
+               id="resourceUri"
+               [(ngModel)]="hero.resourceUri"
+               formControlName="resourceUri">
+        <label for="modified">Lien wiki</label>
+        <app-errors-form
+            [control]="form.controls.modified"
+            controlLabel="Date de modification"
+        ></app-errors-form>
+    </div>
+    <div class="row col-6 mx-auto">
+        <button class="btn btn-primary btn-lg"
+                [disabled]="form.invalid"
+                type="submit"
+        >
+            {{submitLabel}}
+        </button>
+        <a routerLink="heroes" routerLinkActive="active" class="btn btn-outline-dark my-2">RETOUR</a>
+    </div>
+</form>
+

@@ -1,0 +1,16 @@
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">ÉDITER UN HERO</h1>
+</div>
+
+<div class="row col-6 card shadow mx-auto my-5">
+
+    <h3 class="text-center m-3">ÉDITER UN HERO</h3>
+
+    <app-heroes-form
+        *ngIf="hero"
+        [heroToEdit]="hero"
+        submitLabel="Éditer un hero"
+        (formSubmitted)="onSubmitEditHero($event)"
+    ></app-heroes-form>
+
+</div>

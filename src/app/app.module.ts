@@ -11,7 +11,11 @@ import { HeaderComponent } from './controllers/header/header.component';
 import { LoginComponent } from './views/login/login.component';
 import { ErrorComponent } from './views/error/error.component';
 import { SingleHeroComponent } from './views/single-hero/single-hero.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { AddHeroComponent } from './views/add-hero/add-hero.component';
+import { EditHeroComponent } from './views/edit-hero/edit-hero.component';
+import { HeroesFormComponent } from './controllers/heroes-form/heroes-form.component';
+import {ErrorsFormComponent} from "./controllers/errors-form/errors-form.component";
 
 @NgModule({
   declarations: [
@@ -20,13 +24,18 @@ import {FormsModule} from "@angular/forms";
     HeaderComponent,
     LoginComponent,
     ErrorComponent,
-    SingleHeroComponent
+    SingleHeroComponent,
+    AddHeroComponent,
+    EditHeroComponent,
+    ErrorsFormComponent,
+    HeroesFormComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
     ],
   providers: [
     HeroService,

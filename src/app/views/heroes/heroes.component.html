@@ -11,7 +11,8 @@
 
         <div class="d-flex justify-content-between mb-3">
             <h2>HEROS</h2>
-            <button class="btn btn-success btn-lg">NOUVEAU HERO</button>
+            <button routerLink="/heroes/add" routerLinkActive="active"
+                    class="btn btn-success btn-lg">NOUVEAU HERO</button>
         </div>
 
         <ng-container *ngIf="heroes.length > 0">
@@ -20,7 +21,7 @@
                  class="card mb-3 h-100">
                 <div class="row g-0">
                     <div class="col-md-4 mx-auto">
-                        <img [src]="hero.thumbnail.path+'/standard_fantastic.'+hero.thumbnail.extension" >
+                        <img [src]="hero.thumbnail.path+'.'+hero.thumbnail.extension" width="300">
                     </div>
                     <div class="col-md-6">
                         <div class="card-body">

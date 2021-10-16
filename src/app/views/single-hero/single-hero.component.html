@@ -4,7 +4,7 @@
 
 <div *ngIf="hero" class="row col-6 card shadow mx-auto my-5 py-2">
 
-    <img [src]="hero.thumbnail.path+'/standard_fantastic.'+hero.thumbnail.extension">
+    <img [src]="hero.thumbnail.path+'.'+hero.thumbnail.extension">
 
     <div class="card-body">
         <h2 class="card-title text-center">{{hero.name}}</h2>
@@ -24,7 +24,8 @@
     <hr>
 
     <div class="d-flex justify-content-end">
-        <a class="btn btn-warning mx-1">MODIFIER</a>
+        <a [routerLink]="['/heroes',hero.id,'edit']" class="btn btn-warning mx-1">MODIFIER</a>
+        <button (click)="onClickDeleteBtn()"  class="btn btn-danger mx-1">SUPPRIMER</button>
         <a routerLink="/heroes" class="btn btn-outline-dark mx-1">RETOUR</a>
     </div>
 
