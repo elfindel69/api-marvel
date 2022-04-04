@@ -15,7 +15,6 @@ export class HeroService {
     constructor(private httpClient: HttpClient, private authService: AuthService) {
         this.heroes = new BehaviorSubject<Array<Hero>>([]);
         this.getHeroes();
-
     }
 
     getHeroes(): void {
